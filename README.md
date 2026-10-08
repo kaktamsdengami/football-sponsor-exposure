@@ -25,12 +25,9 @@ the wrong one.
 Each stage is a pure function over a run directory, so it is callable from the
 CLI today and from an API later.
 
-```
-video -> segment -> detect -> dedup -> identify -> aggregate -> report
-              \                                      /
-               +--------- scan (geometry-free) ------+
-                          coverage ledger (which seconds were measured, and why not)
-```
+![From a broadcast frame to a sponsor reading: pitch edge and board band found, band straightened into a strip, folded into rows, matched to the advertiser list](docs/pipeline.png)
+
+*One sampled frame through the board path. Frames are from a match broadcast clip and are shown to illustrate the method.*
 
 | Stage | What it does |
 |---|---|
@@ -44,6 +41,8 @@ video -> segment -> detect -> dedup -> identify -> aggregate -> report
 | `aggregate` / `report` | Per-brand time, surface and brightness, rendered as a client report |
 
 ## Ideas worth a look
+
+![The detected band follows the advertising board across three moments of a 17-second clip, including a corner view](docs/tracking.png)
 
 - **Board finder (`brand_reader/board_regions.py`).** Zero-shot YOLO-World
   failed on perimeter boards, so the finder follows the pitch boundary: first
