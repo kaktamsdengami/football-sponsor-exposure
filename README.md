@@ -2,11 +2,11 @@
 
 Given a match video, report **how much on-screen exposure each sponsor got**:
 seconds on screen, share of the broadcast, and (where measurable) size. The
-aim is an independent, auditable measurement that European clubs can hand to
-their commercial partners.
+result is an independent, auditable measurement a club can hand to its
+sponsors.
 
-Developed in collaboration with a professional second-tier football club,
-whose broadcast and advertiser list were used to build and validate it.
+Validated in a pilot with a second-tier European football club, using its
+broadcast and advertiser list. A further pilot has been agreed.
 
 ![From a broadcast frame to a sponsor reading: pitch edge and board band found, band straightened into a strip, folded into rows, matched to the advertiser list](docs/pipeline.png)
 
