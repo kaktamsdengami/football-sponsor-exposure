@@ -66,25 +66,6 @@ Plain horizontal wordmarks land, stylised marks fail, and aliasing cannot fix
 that without overfitting to one clip. That is the argument for the vision
 reader.
 
-## Design ideas worth a look
-
-![The detected band follows the advertising board across three moments of a 17-second clip, including a corner view](docs/tracking.png)
-
-- **Board finder (`brand_reader/board_regions.py`).** Zero-shot object
-  detection failed on perimeter boards, so the finder follows the pitch
-  boundary, fits it with a robust piecewise-linear line (one knot, accepted
-  only when a tail of the boundary sits systematically off the straight fit,
-  so a corner shot keeps both touchline and goal-line boards) and un-warps the
-  band. The fit maths is locked by `board_regions_selftest.py`.
-- **Burned-in graphics are measured, not hardcoded (`overlay_mask.py`).** A
-  watermark is the only thing that stays pixel-identical while the camera cuts
-  between scenes, so it is found from the video's own statistics. It refuses to
-  run rather than guess when the evidence is thin.
-- **The coverage ledger and honest scoring.** The original failure was not a
-  wrong number, it was that nothing knew those seconds existed, so spans must
-  tile the whole match. `score.py` separates "a sponsor credited zero seconds"
-  (loses the contract) from "a sponsor with the wrong number" (accuracy).
-
 ## Limits
 
 Cut-detection thresholds, the `band_confidence` constants and the grass hue
