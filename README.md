@@ -27,11 +27,28 @@ can be scored against the same hand count.
 
 ### Three ways to read the boards
 
-| Reader | What it does | Speed | Cost | Where it fails |
-|---|---|---|---|---|
-| **Touchline OCR** | Follows the pitch edge, straightens the board band, OCRs it and fuzzy-matches against the sponsor list | Slow, OCR-bound | Free, offline | Needs a board along a fittable far touchline: a usable band on 41% of the test clip. Stylised or low-contrast logos read short |
-| **Whole-frame OCR** | Crops away the grass and OCRs the rest, no geometry | About 2.5 h per 90-minute match after the grass crop (about 15 h before it) | Free, offline | Same legibility bias on stylised marks |
-| **Vision model** | A model reads grouped frames and names the brands | Minutes per match through an API | About $8 a match (estimate from a dry run), or free if a person reads exported frames | Needs an API key and sends crops to a third party. The benchmark is partly circular, see below |
+| Reader | What it does | Where it fails |
+|---|---|---|
+| **Touchline OCR** | Follows the pitch edge, straightens the board band, OCRs it and fuzzy-matches against the sponsor list | Needs a board along a fittable far touchline: a usable band on 41% of the test clip. Stylised or low-contrast logos read short |
+| **Whole-frame OCR** | Crops away the grass and OCRs the rest, no geometry | Same legibility bias on stylised marks |
+| **Vision model** | A model reads grouped frames and names the brands | Needs an API key and sends crops to a third party. The benchmark is partly circular, see below |
+
+## What you get
+
+For each advertiser: how long it was on screen, how big, and where. This is
+real output for the 17-second clip in the figures above, with two advertisers
+on the list:
+
+| Brand | Time on screen | % of clip | Size (% of frame) | Distance from centre | Brightness vs frame |
+|---|---|---|---|---|---|
+| TURKISH AIRLINES | 9.1 s | 54.3% | 2.5% | 0.34 | 1.28x |
+| HEINEKEN | 6.7 s | 39.9% | 1.5% | 0.36 | 1.21x |
+
+Distance runs from 0 (centre of frame) to 1 (corner). Brightness above 1.0
+means the board is brighter than the frame average. Time is counted once per
+brand even when it sits on several panels, and the number of panels is
+reported separately. These are raw exposure figures: no weighting for
+audience, clutter or replays.
 
 ## Results
 
