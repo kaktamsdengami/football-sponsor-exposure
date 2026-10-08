@@ -1,0 +1,25 @@
+# Modèles
+*.pt
+
+# Vidéos
+input_videos/
+output_videos/
+outputs/
+
+# Données d'entraînement
+training/
+stubs/
+
+# Python
+__pycache__/
+*.pyc
+tempCodeRunnerFile.py
+
+# Claude
+.claude/
+
+# Debug / preview overlays written by locate_viz, board_regions previews, etc.
+test/
+
+# API key for the vision path -- never commit
+.anthropic_key
