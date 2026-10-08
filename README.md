@@ -5,6 +5,9 @@ seconds on screen, share of the broadcast, and (where measurable) size. The
 aim is an independent, auditable measurement that European clubs can hand to
 their commercial partners.
 
+Developed in collaboration with a professional second-tier football club,
+whose broadcast and advertiser list were used to build and validate it.
+
 It started as a school prototype that produced an annotated demo video. It is
 now a measurement pipeline whose output is a per-advertiser table, and whose
 accuracy is scored against a hand count rather than eyeballed.
